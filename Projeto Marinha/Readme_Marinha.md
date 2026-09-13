@@ -29,7 +29,7 @@ O relatório foi construído para responder a 5 perguntas:
 ![Página 2024] https://github.com/KawaiMatheus/Portfolio/blob/8f66ba35e4af2a6ea3926c1a39b06d0f055c8869/Projeto%20Marinha/R_M_2024.png
 
 ### Página 2025 (com comparativo 2024 x 2025)
-![Página 2025](caminho/para/print-2025.png)
+![Página 2025] https://github.com/KawaiMatheus/Portfolio/blob/a20d2d44b016748b8322e42548716a4442bda121/Projeto%20Marinha/R_M_2025.png
 
 ## 🧮 Principais medidas DAX
 
