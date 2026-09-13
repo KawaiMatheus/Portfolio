@@ -63,4 +63,6 @@ O relatório foi construído para responder a 5 perguntas:
 
 ---
 
-*Projeto desenvolvido por [seu nome] como parte do meu portfólio de análise de dados.*
+👤 Kawai Matheus D. Silva
+
+*Projeto desenvolvido como parte do meu portfólio de análise de dados.*
