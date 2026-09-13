@@ -55,4 +55,6 @@ _Adicione aqui screenshots de cada página do relatório (Info, Visitas 2023, 20
 
 ---
 
+## 👤 Kawai Matheus D. Silva
+
 Projeto desenvolvido para fins de estudo e prática de Power BI.
