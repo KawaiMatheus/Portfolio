@@ -65,7 +65,7 @@ A amostra cobre os anos de **2018 a 2026**, **23 UFs** e **14 funções orçamen
 - Criar uma segunda página com detalhamento por município
 - Documentar as medidas DAX utilizadas
 
-## 👤 Autor
+## 👤 Kawai Matheus D. Silva
 
 Projeto desenvolvido como prática de estudo em Power BI.
 
