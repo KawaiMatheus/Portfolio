@@ -57,7 +57,7 @@ Bases anuais de chegadas de turistas internacionais ao Brasil (2023, 2024 e 2025
 
 [#Visita_2024] https://github.com/KawaiMatheus/Portfolio/blob/481a056ae8a1639eb5734c4ade74b5423f65aa9d/Projeto%20Turismo/Turismo_2024.png
 
-[#Visita_2025] 
+[#Visita_2025] https://github.com/KawaiMatheus/Portfolio/blob/dd18f81fba71127d67a1b239d888a0921f9359a4/Projeto%20Turismo/Turismo_2025.png
 
 ---
 
