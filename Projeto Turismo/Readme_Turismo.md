@@ -59,6 +59,8 @@ Bases anuais de chegadas de turistas internacionais ao Brasil (2023, 2024 e 2025
 
 [#Visita_2025] https://github.com/KawaiMatheus/Portfolio/blob/dd18f81fba71127d67a1b239d888a0921f9359a4/Projeto%20Turismo/Turismo_2025.png
 
+👤 Kawai Matheus D. Silva
+
 ---
 
 Projeto desenvolvido para fins de estudo e prática de Power BI.
