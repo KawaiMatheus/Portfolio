@@ -26,7 +26,7 @@ O relatório foi construído para responder a 5 perguntas:
 ## 🖼️ Prints do relatório
 
 ### Página 2024
-![Página 2024](caminho/para/print-2024.png)
+![Página 2024] https://github.com/KawaiMatheus/Portfolio/blob/8f66ba35e4af2a6ea3926c1a39b06d0f055c8869/Projeto%20Marinha/R_M_2024.png
 
 ### Página 2025 (com comparativo 2024 x 2025)
 ![Página 2025](caminho/para/print-2025.png)
