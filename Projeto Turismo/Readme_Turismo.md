@@ -44,10 +44,7 @@ Bases anuais de chegadas de turistas internacionais ao Brasil (2023, 2024 e 2025
 2. Abra no Power BI Desktop
 3. Navegue entre as páginas de 2023, 2024 e 2025 usando os botões da capa
 
-## 📈 Possíveis evoluções
 
-- Consolidar as três tabelas anuais em uma única tabela fato com coluna `Ano`, reduzindo a duplicação de medidas e permitindo comparação direta entre anos em um único visual
-- Adicionar página comparativa entre os três anos
 
 ## 📷 Prints do dashboard
 
