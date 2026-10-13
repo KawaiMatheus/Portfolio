@@ -58,12 +58,6 @@ A amostra cobre os anos de **2018 a 2026**, **23 UFs** e **14 funções orçamen
 3. Abra o arquivo `Projeto_Parlamentar.pbix` no Power BI Desktop.
 4. Explore o dashboard usando as segmentações de Ano e Função.
 
-## 📌 Próximos passos / melhorias futuras
-
-- Expandir a amostra de dados
-- Adicionar tabela calendário para análises temporais mais robustas
-- Criar uma segunda página com detalhamento por município
-- Documentar as medidas DAX utilizadas
 
 ## 👤 Kawai Matheus D. Silva
 
