@@ -1,0 +1,148 @@
+# 🛒 Techstore — Dashboard de Vendas em Power BI
+
+Dashboard de vendas de uma loja fictícia de produtos de informática, construído em **Power BI** a partir de uma base criada e consultada em **SQL (SQLite)**. O projeto cobre o caminho completo de um analista de dados júnior: dados brutos → limpeza → modelagem e medidas DAX → visualização → insights.
+
+![Visão Geral do dashboard](imagens/visao-geral.png)
+
+---
+
+## 📌 Sobre o projeto
+
+| | |
+|---|---|
+| **Objetivo** | Acompanhar receita, pedidos, ticket médio e desempenho por produto, vendedor, cidade e forma de pagamento |
+| **Período** | 01/01/2025 a 31/12/2025 |
+| **Fonte dos dados** | Base fictícia (gerada com apoio de IA) para prática de SQL, exportada do SQLite Online para `.xlsx` |
+| **Ferramentas** | SQL (SQLite), Power Query (M), DAX, Power BI Desktop |
+
+> ⚠️ Os dados são fictícios. Os insights abaixo servem para demonstrar o raciocínio analítico, não representam uma operação real.
+
+---
+
+## 🗂️ Dados
+
+A base tem uma única tabela, `Vendas`, com **207 registros brutos** (199 após o tratamento), 4 clientes, 8 produtos, 5 vendedores e 7 cidades em 3 estados (PR, SC, SP).
+
+| Coluna | Tipo | Descrição |
+|---|---|---|
+| `id_pedido` | Inteiro | Identificador do pedido |
+| `cliente` | Texto | Nome do cliente |
+| `produto` | Texto | Produto vendido |
+| `quantidade` | Inteiro | Unidades vendidas no pedido |
+| `preco_unitario` | Inteiro | Preço de cada unidade (R$) |
+| `data_pedido` | Data | Data do pedido |
+| `cidade` / `uf` | Texto | Local da venda |
+| `vendedor` | Texto | Responsável pela venda |
+| `forma_pagamento` | Texto | Boleto, Pix ou Cartão |
+
+---
+
+## 🧹 Tratamento dos dados (Power Query)
+
+A base trazia problemas propositais de qualidade, tratados antes da análise:
+
+| Problema encontrado | Solução |
+|---|---|
+| 8 pedidos duplicados (linhas idênticas) | Remoção de duplicatas pelo `id_pedido` → 207 para 199 registros |
+| UF incompatível com a cidade (ex.: Florianópolis em PR/SP, São José dos Pinhais em SP, São Paulo em SC) | Correção da UF com `Table.ReplaceValue` e regras por cidade |
+| Nomes de clientes e produtos fora do padrão | Padronização com `Text.Proper` |
+
+Antes de remover as duplicatas, conferi que eram cópias exatas das linhas, para não descartar pedidos legítimos.
+
+---
+
+## 🧮 Medidas DAX
+
+```dax
+Receita = SUMX(Vendas, Vendas[quantidade] * Vendas[preco_unitario])
+
+Total Pedidos = DISTINCTCOUNT(Vendas[id_pedido])
+
+Ticket Médio = DIVIDE([Receita], [Total Pedidos])
+
+QTD produto = SUM(Vendas[quantidade])
+
+Vendas PIX = CALCULATE([Receita], Vendas[forma_pagamento] = "Pix")
+
+Ranking Vendedor = RANKX(ALL(Vendas[vendedor]), [Receita], , DESC)
+```
+
+**Ponto de atenção que aprendi:** somar apenas o `preco_unitario` ignora a quantidade vendida e distorce a receita. O correto é multiplicar `quantidade × preco_unitario` linha a linha (`SUMX`). O ticket médio também deve ser calculado **por pedido**, não por unidade.
+
+---
+
+## 📊 O dashboard
+
+### Página 1 — Visão Geral
+- Menu lateral de navegação entre as páginas
+- Cartões de **Receita**, **Total de Pedidos** e **Ticket Médio**
+- Segmentação por **forma de pagamento**
+- **Ranking de vendas por vendedor**
+- Tabelas de **vendas** e **quantidade** por produto
+
+### Página 2 — Análise de Vendas
+- **Receita por produto**
+- **Evolução mensal** da receita em 2025
+- **Quantidade vendida por cidade**
+- Segmentação por forma de pagamento e botão de voltar
+
+![Análise de Vendas](imagens/analise-de-vendas.png)
+
+---
+
+## 💡 Principais insights
+
+| Indicador | Resultado |
+|---|---|
+| Receita total | **R$ 423.744** |
+| Pedidos | **199** |
+| Ticket médio por pedido | **R$ 2.129,37** |
+| Unidades vendidas | **572** |
+
+- **Notebook concentra 40,5% da receita** (R$ 171,5 mil), mesmo sendo o produto com menos unidades vendidas entre os principais: 49. Mouse e Teclado, juntos, respondem por menos de 4%.
+- **Boleto é a forma de pagamento dominante**, com 54,2% da receita, seguido de Pix (24,8%) e Cartão (20,9%).
+- **Outubro é o mês de pico** (R$ 72,8 mil), enquanto **agosto é o mais fraco** (R$ 15,9 mil), uma diferença de mais de 4,5 vezes.
+- **O Paraná gera 56,7% da receita**; Londrina lidera tanto em unidades vendidas (109) quanto em receita (R$ 105,9 mil).
+- **Patrícia lidera entre os vendedores** (R$ 120,4 mil, 28,4% do total) e o Mario tem a menor participação (2,2%), o que sugere investigar carteira, período de atuação ou treinamento.
+- **A receita é concentrada em poucos clientes**: Gabriela Nunes sozinha responde por 38,9% do total, um risco de dependência.
+
+---
+
+## 🚀 Como abrir o projeto
+
+1. Baixe o arquivo `Projeto_Techstore.pbix` e o arquivo de dados `.xlsx` deste repositório.
+2. Abra o `.pbix` no **Power BI Desktop**.
+3. Se aparecer erro de fonte de dados, vá em **Transformar dados → Configurações da fonte de dados** e aponte para o caminho do `.xlsx` na sua máquina.
+
+---
+
+## 🔭 Próximos passos
+
+- Criar uma **tabela calendário** própria (`dCalendario`) para análises de tempo mais robustas
+- Trocar o caminho fixo da fonte por um **parâmetro** no Power Query
+- Substituir as correções de UF por uma **tabela de-para cidade → UF**
+- Adicionar comparação mês a mês e metas por vendedor
+
+---
+
+## 📁 Estrutura sugerida do repositório
+
+```
+Projeto_Techstore/
+├── Projeto_Techstore.pbix
+├── dados/
+│   └── vendas.xlsx
+├── imagens/
+│   ├── visao-geral.png
+│   └── analise-de-vendas.png
+└── README.md
+```
+
+---
+
+## 👤 Autor
+
+**Kawai Delinardo**
+Profissional em transição de carreira de Recursos Humanos para Análise de Dados.
+
+[LinkedIn](https://www.linkedin.com/in/kawai-delinardo) · [Portfólio no GitHub](https://github.com/KawaiMatheus/Portfolio)
