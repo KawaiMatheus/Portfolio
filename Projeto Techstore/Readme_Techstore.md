@@ -116,33 +116,12 @@ Ranking Vendedor = RANKX(ALL(Vendas[vendedor]), [Receita], , DESC)
 
 ---
 
-## 🔭 Próximos passos
 
-- Criar uma **tabela calendário** própria (`dCalendario`) para análises de tempo mais robustas
-- Trocar o caminho fixo da fonte por um **parâmetro** no Power Query
-- Substituir as correções de UF por uma **tabela de-para cidade → UF**
-- Adicionar comparação mês a mês e metas por vendedor
 
----
-
-## 📁 Estrutura sugerida do repositório
-
-```
-Projeto_Techstore/
-├── Projeto_Techstore.pbix
-├── dados/
-│   └── vendas.xlsx
-├── imagens/
-│   ├── visao-geral.png
-│   └── analise-de-vendas.png
-└── README.md
-```
-
----
 
 ## 👤 Autor
 
 **Kawai Delinardo**
 Profissional em transição de carreira de Recursos Humanos para Análise de Dados.
 
-[LinkedIn](https://www.linkedin.com/in/kawai-delinardo) · [Portfólio no GitHub](https://github.com/KawaiMatheus/Portfolio)
+[LinkedIn](https://www.linkedin.com/in/kawai-delinardo) · 
